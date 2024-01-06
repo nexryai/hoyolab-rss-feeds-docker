@@ -4,9 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN apk add --no-cache ca-certificates tini \
+RUN apk add --no-cache ca-certificates tini g++ build-base cmake clang \
  && pip install --break-system-packages -r requirements.txt \
- && groupadd -g 816 app \
+ && apk del g++ build-base cmake clang \
+ && addgroup -g 816 app \
  && adduser -u 816 -G app -D -h /app app \
  && chown -R app:app /app
 
