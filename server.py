@@ -1,3 +1,4 @@
+import asyncio
 import datetime
 import threading
 import time
@@ -18,7 +19,7 @@ async def generate_feeds():
 def generate_feeds_cron():
     while True:
         print(f"[{datetime.datetime.now()}] Generating feeds...")
-        generate_feeds()
+        asyncio.run(generate_feeds())
         time.sleep(20 * 60)  # Sleep for 20 minutes
 
 
