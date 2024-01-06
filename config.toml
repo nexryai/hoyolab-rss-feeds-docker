@@ -4,10 +4,7 @@ category_size = 15
 [genshin]
 feed.json.path = "./genshin.json"
 feed.atom.path = "./genshin.xml"
-#feed.json.url = "https://hoyofeed.sda1.net/jp/genshin.json"
 
 [starrail]
 feed.json.path = "./starrail.json"
-#feed.json.url = "https://hoyofeed.sda1.net/ja/starrail.json"
 feed.atom.path = "./starrail.xml"
-#feed.atom.url = "https://hoyofeed.sda1.net/ja/starrail.xml"
