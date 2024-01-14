@@ -9,13 +9,6 @@ import (
 	"os/exec"
 )
 
-func exitOnNilPtr(ptr interface{}) {
-	if ptr == nil {
-		fmt.Println("invalid FEED_LANG")
-		os.Exit(1)
-	}
-}
-
 func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 	cmd := exec.Command("hoyolab-rss-feeds", "-c", "./config.toml")
 
@@ -49,16 +42,28 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 	lang = os.Getenv("FEED_LANG")
 
 	hsrXmlCache := cache.LangToFeedCache(lang, cachePtr.StarRailXml)
-	exitOnNilPtr(hsrXmlCache)
+	if hsrXmlCache == nil {
+		fmt.Println("invalid FEED_LANG")
+		os.Exit(1)
+	}
 
 	hsrJsonCache := cache.LangToFeedCache(lang, cachePtr.StarRailJson)
-	exitOnNilPtr(hsrJsonCache)
+	if hsrXmlCache == nil {
+		fmt.Println("invalid FEED_LANG")
+		os.Exit(1)
+	}
 
 	genshinXmlCache := cache.LangToFeedCache(lang, cachePtr.GenshinXml)
-	exitOnNilPtr(genshinXmlCache)
+	if hsrXmlCache == nil {
+		fmt.Println("invalid FEED_LANG")
+		os.Exit(1)
+	}
 
 	genshinJsonCache := cache.LangToFeedCache(lang, cachePtr.GenshinJson)
-	exitOnNilPtr(genshinJsonCache)
+	if hsrXmlCache == nil {
+		fmt.Println("invalid FEED_LANG")
+		os.Exit(1)
+	}
 
 	hsrXmlCache.IsLocked = true
 	hsrXmlCache.ContentBuffer = &starRailXml
