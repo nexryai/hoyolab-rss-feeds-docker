@@ -67,7 +67,7 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 
 	hsrXmlCache.IsLocked = true
 	hsrXmlCache.ContentBuffer = &starRailXml
-	hsrJsonCache.IsLocked = false
+	hsrXmlCache.IsLocked = false
 
 	hsrJsonCache.IsLocked = true
 	hsrJsonCache.ContentBuffer = &starRailJson
