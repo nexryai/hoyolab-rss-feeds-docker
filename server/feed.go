@@ -1,15 +1,16 @@
 package server
 
 import (
-	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"lab.sda1.net/nexryai/hoyofeed/cache"
+	"lab.sda1.net/nexryai/hoyofeed/logger"
 	"os"
 	"time"
 )
 
 func StartServer(cahce *cache.MultiTypeFeedCache) {
 	app := fiber.New()
+	log := logger.GetLogger("Serv")
 
 	app.Get("/:lang/:feedType", func(ctx *fiber.Ctx) error {
 		lang := ctx.Params("lang")
@@ -49,7 +50,7 @@ func StartServer(cahce *cache.MultiTypeFeedCache) {
 				}
 
 				if c > 100 {
-					fmt.Println("Too long time to wait for feedCache.IsLocked")
+					log.Warn("Too long time to wait for feedCache.IsLocked")
 					ctx.Status(500)
 					return ctx.SendString("internal server error")
 				}
@@ -60,9 +61,11 @@ func StartServer(cahce *cache.MultiTypeFeedCache) {
 		return ctx.Send(*feedCache.ContentBuffer)
 	})
 
+	log.Info("listening on :3000")
+
 	err := app.Listen(":3000")
 	if err != nil {
-		fmt.Println("err:", err)
+		log.FatalWithDetail("err:", err)
 		os.Exit(1)
 	}
 }

@@ -3,27 +3,30 @@ package feed
 import (
 	"bytes"
 	"errors"
-	"fmt"
 	"lab.sda1.net/nexryai/hoyofeed/cache"
+	"lab.sda1.net/nexryai/hoyofeed/logger"
 	"os"
 	"os/exec"
 )
 
 func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
+	log := logger.GetLogger("Feed")
+
 	cmd := exec.Command("hoyolab-rss-feeds", "-c", "./config.toml")
 
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 
+	log.Info("generating feed...")
 	err := cmd.Run()
 
 	if stderr.String() != "" {
-		fmt.Println("stderr:", stderr.String())
+		log.Error("stderr: ", stderr.String())
 	}
 
 	if err != nil {
-		fmt.Println("err:", err)
+		log.ErrorWithDetail("err:", err)
 		return err
 	}
 
@@ -34,7 +37,7 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 
 	err = errors.Join(errHsrXml, errHsrJson, errGenshinXml, errGenshinJson)
 	if err != nil {
-		fmt.Println("err:", err)
+		log.ErrorWithDetail("err:", err)
 		return err
 	}
 
@@ -43,25 +46,25 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 
 	hsrXmlCache := cache.LangToFeedCache(lang, cachePtr.StarRailXml)
 	if hsrXmlCache == nil {
-		fmt.Println("invalid FEED_LANG")
+		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
 	hsrJsonCache := cache.LangToFeedCache(lang, cachePtr.StarRailJson)
 	if hsrXmlCache == nil {
-		fmt.Println("invalid FEED_LANG")
+		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
 	genshinXmlCache := cache.LangToFeedCache(lang, cachePtr.GenshinXml)
 	if hsrXmlCache == nil {
-		fmt.Println("invalid FEED_LANG")
+		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
 	genshinJsonCache := cache.LangToFeedCache(lang, cachePtr.GenshinJson)
 	if hsrXmlCache == nil {
-		fmt.Println("invalid FEED_LANG")
+		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
