@@ -28,7 +28,7 @@ func main() {
 			fmt.Println("feed updated")
 
 			// 20分待つ
-			time.Sleep(time.Minute * 10)
+			time.Sleep(time.Minute * 20)
 		}
 	}()
 
