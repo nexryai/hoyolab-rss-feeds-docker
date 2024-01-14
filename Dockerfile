@@ -1,8 +1,18 @@
-FROM python:3.12-alpine
+FROM golang:alpine AS builder
 
 WORKDIR /app
 
 COPY . .
+
+RUN apk add --no-cache git ca-certificates tini g++ build-base cmake clang \
+ && go build -o /app/server
+
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+COPY ["requirements.txt", "config.toml", "/app/"]
+COPY --from=builder /app/server /app/server
 
 RUN apk add --no-cache ca-certificates tini g++ build-base cmake clang \
  && pip install --break-system-packages -r requirements.txt \
@@ -12,4 +22,4 @@ RUN apk add --no-cache ca-certificates tini g++ build-base cmake clang \
  && chown -R app:app /app
 
 USER app
-CMD [ "tini", "--", "python3", "server.py" ]
+CMD [ "tini", "--", "/app/server" ]
