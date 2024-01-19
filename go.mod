@@ -4,7 +4,7 @@ go 1.21.5
 
 require (
 	github.com/gofiber/fiber/v2 v2.52.0
-	github.com/nexryai/visualog v0.0.0-20240114055531-c004ff34926e
+	github.com/nexryai/visualog v0.0.1
 )
 
 require (

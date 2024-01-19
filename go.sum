@@ -13,8 +13,8 @@ github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWE
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/mattn/go-runewidth v0.0.15 h1:UNAjwbU9l54TA3KzvqLGxwWjHmMgBUVhBiTjelZgg3U=
 github.com/mattn/go-runewidth v0.0.15/go.mod h1:Jdepj2loyihRzMpdS35Xk/zdY8IAYHsh153qUoGf23w=
-github.com/nexryai/visualog v0.0.0-20240114055531-c004ff34926e h1:PzqFZ2PBJb5Kul9Qz2DPjzNoGaXirkV0YagTfhmLqIw=
-github.com/nexryai/visualog v0.0.0-20240114055531-c004ff34926e/go.mod h1:ODcYfc6Wk0cWFPP1Vjv5u+9RQLOToH5MeQKRP+MdfPA=
+github.com/nexryai/visualog v0.0.1 h1:TV+PFzRHUDS6NTtL0Jb39bVQxqDSgPHNciWA0m+CAvE=
+github.com/nexryai/visualog v0.0.1/go.mod h1:ODcYfc6Wk0cWFPP1Vjv5u+9RQLOToH5MeQKRP+MdfPA=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
