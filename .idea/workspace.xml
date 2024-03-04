@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="CIの名前を修正">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Add deploy CI">
+      <change afterPath="$PROJECT_DIR$/.github/dependency_decisions.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/license_check.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,8 @@
     <MESSAGE value="アホすぎるミスを修正" />
     <MESSAGE value="Update CI" />
     <MESSAGE value="CIの名前を修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="CIの名前を修正" />
+    <MESSAGE value="Add deploy CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add deploy CI" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
