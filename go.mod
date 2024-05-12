@@ -3,7 +3,7 @@ module lab.sda1.net/nexryai/hoyofeed
 go 1.22.2
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.1
+	github.com/gofiber/fiber/v2 v2.52.4
 	github.com/nexryai/visualog v0.0.1
 )
 
