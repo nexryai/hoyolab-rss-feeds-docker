@@ -26,10 +26,17 @@ func main() {
 	// 20分おきにフィードを更新
 	log.ProgressInfo("Starting feed generate goroutine...")
 
+	// miHoYoの現地時刻を基準にする
+	tz, err := time.LoadLocation("Asia/Shanghai")
+	if err != nil {
+		log.FatalWithDetail("Failed to load timezone info", err)
+	}
+
 	timer := watchmaker.Timer{
 		BaseInterval: time.Minute * 20,
 		RunOnTheHour: true,
 		Delay:        time.Second * 15,
+		Timezone:     tz,
 	}
 
 	go func() {
