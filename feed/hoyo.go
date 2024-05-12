@@ -7,6 +7,7 @@ import (
 	"lab.sda1.net/nexryai/hoyofeed/logger"
 	"os"
 	"os/exec"
+	"strconv"
 )
 
 func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
@@ -20,14 +21,16 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 
 	log.Info("generating feed...")
 	err := cmd.Run()
-
-	if stderr.String() != "" {
-		log.Error("stderr: ", stderr.String())
-	}
-
 	if err != nil {
 		log.ErrorWithDetail("err:", err)
 		return err
+	}
+
+	exitCode := cmd.ProcessState.ExitCode()
+	if exitCode != 0 {
+		log.Error("exit code: ", strconv.Itoa(exitCode))
+		log.Error("stderr: ", stderr.String())
+		return errors.New("exit code is not 0")
 	}
 
 	starRailXml, errHsrXml := os.ReadFile("./starrail.xml")

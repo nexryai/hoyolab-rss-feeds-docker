@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Fix typo">
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Update timezone">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/hoyo.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/hoyo.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,8 @@
     <MESSAGE value="Update to actions/checkout@v4" />
     <MESSAGE value="Use more smart timer for loop" />
     <MESSAGE value="Fix typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix typo" />
+    <MESSAGE value="Update timezone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update timezone" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
