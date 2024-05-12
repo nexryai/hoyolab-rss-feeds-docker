@@ -54,19 +54,19 @@ func GenerateFeed(cachePtr *cache.MultiTypeFeedCache, lang string) error {
 	}
 
 	hsrJsonCache := cache.LangToFeedCache(lang, cachePtr.StarRailJson)
-	if hsrXmlCache == nil {
+	if hsrJsonCache == nil {
 		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
 	genshinXmlCache := cache.LangToFeedCache(lang, cachePtr.GenshinXml)
-	if hsrXmlCache == nil {
+	if genshinXmlCache == nil {
 		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
 
 	genshinJsonCache := cache.LangToFeedCache(lang, cachePtr.GenshinJson)
-	if hsrXmlCache == nil {
+	if genshinJsonCache == nil {
 		log.Fatal("invalid FEED_LANG")
 		os.Exit(1)
 	}
