@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func StartServer(cahce *cache.MultiTypeFeedCache) {
+func StartServer(cacheMemory *cache.MultiTypeFeedCache) {
 	app := fiber.New()
 	log := logger.GetLogger("Serv")
 
@@ -25,7 +25,7 @@ func StartServer(cahce *cache.MultiTypeFeedCache) {
 			return ctx.SendString("bad request")
 		}
 
-		multiLangCache, contentType := cache.FeedTypeToMultiLangCache(feedType, cahce)
+		multiLangCache, contentType := cache.FeedTypeToMultiLangCache(feedType, cacheMemory)
 		if multiLangCache == nil {
 			ctx.Status(404)
 			return ctx.SendString("not found")
