@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Add deploy CI">
-      <change afterPath="$PROJECT_DIR$/.github/dependency_decisions.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/license_check.yml" afterDir="false" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Update to actions/checkout@v4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/feed.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/feed.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +23,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///usr/lib/golang" />
+  <component name="GOROOT" url="file:///opt/homebrew/opt/go/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -51,9 +54,18 @@
     "last_opened_file_path": "/Users/nexryai/git/hoyolab-rss-feeds-docker",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-33c477a475b1-b97fc8a1e17c-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.14494.238" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-GO-241.14494.238" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -70,7 +82,9 @@
     <MESSAGE value="Update CI" />
     <MESSAGE value="CIの名前を修正" />
     <MESSAGE value="Add deploy CI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add deploy CI" />
+    <MESSAGE value="Add LicenseFinder CI" />
+    <MESSAGE value="Update to actions/checkout@v4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to actions/checkout@v4" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

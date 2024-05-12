@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/nexryai/watchmaker"
 	"lab.sda1.net/nexryai/hoyofeed/cache"
 	"lab.sda1.net/nexryai/hoyofeed/feed"
 	"lab.sda1.net/nexryai/hoyofeed/logger"
@@ -24,6 +25,13 @@ func main() {
 
 	// 20分おきにフィードを更新
 	log.ProgressInfo("Starting feed generate goroutine...")
+
+	timer := watchmaker.Timer{
+		BaseInterval: time.Minute * 20,
+		RunOnTheHour: true,
+		Delay:        time.Second * 15,
+	}
+
 	go func() {
 		for {
 			err := feed.GenerateFeed(&memory, os.Getenv("FEED_LANG"))
@@ -33,8 +41,8 @@ func main() {
 
 			log.Info("feed updated")
 
-			// 20分待つ
-			time.Sleep(time.Minute * 20)
+			// 待機
+			timer.WaitForNextScheduledTime()
 		}
 	}()
 	log.ProgressOk()
