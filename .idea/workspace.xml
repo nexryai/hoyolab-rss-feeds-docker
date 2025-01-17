@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Update timezone">
-      <change afterPath="$PROJECT_DIR$/upload/azure.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/s3.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cache.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/type.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.ja-jp.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/hoyo.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/feed.go" beforeDir="false" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Idea">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +101,12 @@
     <MESSAGE value="Use more smart timer for loop" />
     <MESSAGE value="Fix typo" />
     <MESSAGE value="Update timezone" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update timezone" />
+    <MESSAGE value="Add a S3 uploader" />
+    <MESSAGE value="Add an Azure uploader" />
+    <MESSAGE value="Goodbye Fly.io" />
+    <MESSAGE value="Breaking: サーバー方式からクラウドストレージ方式に変更&#10;本体でキャッシュしてサーブするのではなく本体は定期的に呼び出されて外部サーバーにアップロードする形式へ" />
+    <MESSAGE value="Idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Idea" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

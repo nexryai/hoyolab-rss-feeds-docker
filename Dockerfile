@@ -4,23 +4,23 @@ WORKDIR /app
 
 COPY . ./
 
-RUN apk add --no-cache git ca-certificates tini g++ build-base cmake clang \
- && go build -ldflags="-s -w" -trimpath -o hoyofeed main.go
+ENV CGO_ENABLED=0
 
-FROM python:3.12-alpine
+RUN apk add --no-cache ca-certificates \
+ && go build -ldflags="-s -w" -buildmode=pie -trimpath -o hoyofeed main.go
+
+FROM chimeralinux/chimera
 
 WORKDIR /app
 
-COPY ["requirements.txt", "config.toml", "/app/"]
-COPY --from=builder /app/hoyofeed /app/hoyofeed
-
-RUN apk add --no-cache ca-certificates tini cmake clang build-base \
- && pip install --break-system-packages -r requirements.txt \
- && apk del g++ build-base cmake clang \
- && addgroup -g 816 app \
- && adduser -u 816 -G app -D -h /app app \
- && chmod +x /app/hoyofeed \
- && chown -R app:app /app
+COPY requirements.txt /app/
+RUN apk update && apk upgrade \
+    && apk add python python-pip \
+    && pip install --break-system-packages -r requirements.txt \
+    && addgroup -g 816 app \
+    && adduser -u 816 -G app -D -h /app app \
+    && chmod +x /app/hoyofeed \
+    && chown -R app:app /app
 
 USER app
 CMD [ "tini", "--", "/app/hoyofeed" ]
