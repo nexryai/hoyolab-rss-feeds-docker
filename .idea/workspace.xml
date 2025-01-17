@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Idea">
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Docker: no-cache">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +107,9 @@
     <MESSAGE value="Goodbye Fly.io" />
     <MESSAGE value="Breaking: サーバー方式からクラウドストレージ方式に変更&#10;本体でキャッシュしてサーブするのではなく本体は定期的に呼び出されて外部サーバーにアップロードする形式へ" />
     <MESSAGE value="Idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Idea" />
+    <MESSAGE value="Update Dockerfile" />
+    <MESSAGE value="Docker: no-cache" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker: no-cache" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
