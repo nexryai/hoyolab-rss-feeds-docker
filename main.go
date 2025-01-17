@@ -1,60 +1,56 @@
 package main
 
 import (
+	"bytes"
+	"errors"
 	"fmt"
-	"github.com/nexryai/watchmaker"
-	"lab.sda1.net/nexryai/hoyofeed/cache"
-	"lab.sda1.net/nexryai/hoyofeed/feed"
 	"lab.sda1.net/nexryai/hoyofeed/logger"
-	"lab.sda1.net/nexryai/hoyofeed/server"
+	"lab.sda1.net/nexryai/hoyofeed/upload"
 	"os"
-	"time"
+	"os/exec"
+	"strconv"
 )
 
-func main() {
-	log := logger.GetLogger("Main")
+func generateFeed(lang string) error {
+	log := logger.GetLogger("FEED")
 
-	log.ProgressInfo("Init memory...")
-	memory := cache.MultiTypeFeedCache{
-		StarRailXml:  new(cache.MultiLangFeedCache),
-		StarRailJson: new(cache.MultiLangFeedCache),
-		GenshinXml:   new(cache.MultiLangFeedCache),
-		GenshinJson:  new(cache.MultiLangFeedCache),
-	}
-	log.ProgressOk()
+	cmd := exec.Command("hoyolab-rss-feeds", "-c", fmt.Sprintf("./config.%s.toml", lang))
 
-	// 20分おきにフィードを更新
-	log.ProgressInfo("Starting feed generate goroutine...")
+	var stdout, stderr bytes.Buffer
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
 
-	// miHoYoの現地時刻を基準にする
-	tz, err := time.LoadLocation("Asia/Shanghai")
+	log.Info("generating feed...")
+	err := cmd.Run()
 	if err != nil {
-		log.FatalWithDetail("Failed to load timezone info", err)
+		return err
 	}
 
-	timer := watchmaker.Timer{
-		BaseInterval: time.Minute * 20,
-		RunOnTheHour: true,
-		Delay:        time.Second * 15,
-		Timezone:     tz,
+	exitCode := cmd.ProcessState.ExitCode()
+	if exitCode != 0 {
+		log.Error("exit code: ", strconv.Itoa(exitCode))
+		log.Error("stderr: ", stderr.String())
+		return errors.New("exit code is not 0")
 	}
 
-	go func() {
-		for {
-			err := feed.GenerateFeed(&memory, os.Getenv("FEED_LANG"))
-			if err != nil {
-				fmt.Println("err:", err)
-			}
+	return errors.Join(
+		upload.PutFileToAzureBlob("./genshin.xml", fmt.Sprintf("%s/genshin.xml", lang)),
+		upload.PutFileToAzureBlob("./genshin.json", fmt.Sprintf("%s/genshin.json", lang)),
+		upload.PutFileToAzureBlob("./starrail.xml", fmt.Sprintf("%s/starrail.xml", lang)),
+		upload.PutFileToAzureBlob("./starrail.json", fmt.Sprintf("%s/starrail.json", lang)),
+	)
+}
 
-			log.Info("feed updated")
+func main() {
+	log := logger.GetLogger("MAIN")
 
-			// 待機
-			timer.WaitForNextScheduledTime()
-		}
-	}()
-	log.ProgressOk()
+	log.Info("Starting...")
 
-	fmt.Println("\n")
-	log.Info("starting server...")
-	server.StartServer(&memory)
+	err := generateFeed("ja-jp")
+	if err != nil {
+		log.ErrorWithDetail("FAILED:", err)
+		os.Exit(1)
+	}
+
+	os.Exit(0)
 }
