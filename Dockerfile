@@ -13,14 +13,14 @@ FROM chimeralinux/chimera
 
 WORKDIR /app
 
-COPY requirements.txt /app/
+COPY ["requirements.txt", "config.*.toml", "/app/"]
+COPY --from=builder /app/hoyofeed /app/
+
 RUN apk update && apk --no-cache upgrade \
     && apk --no-cache add python python-pip \
     && pip install --break-system-packages -r requirements.txt \
-    && addgroup -g 816 app \
-    && adduser -u 816 -G app -D -h /app app \
     && chmod +x /app/hoyofeed \
-    && chown -R app:app /app
+    && chown -R 816:816 /app
 
-USER app
-CMD [ "tini", "--", "/app/hoyofeed" ]
+USER 816
+CMD [ "/app/hoyofeed" ]
