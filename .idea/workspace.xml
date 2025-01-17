@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Docker: no-cache">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Update .idea" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +88,6 @@
     <MESSAGE value="Update Dockerfile and dependabot.yml" />
     <MESSAGE value="Clean up" />
     <MESSAGE value="Improve Dockerfile" />
-    <MESSAGE value="Fix Dockerfile" />
     <MESSAGE value="Fix nil check" />
     <MESSAGE value="アホすぎるミスを修正" />
     <MESSAGE value="Update CI" />
@@ -109,7 +105,9 @@
     <MESSAGE value="Idea" />
     <MESSAGE value="Update Dockerfile" />
     <MESSAGE value="Docker: no-cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker: no-cache" />
+    <MESSAGE value="Fix Dockerfile" />
+    <MESSAGE value="Update .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .idea" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
