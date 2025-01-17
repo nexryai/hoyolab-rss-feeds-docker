@@ -19,6 +19,7 @@ COPY --from=builder /app/hoyofeed /app/
 RUN apk update && apk --no-cache upgrade \
     && apk --no-cache add python python-pip \
     && pip install --no-cache-dir --break-system-packages -r requirements.txt \
+    && rm requirements.txt \
     && chown -R 816:816 /app \
     && chown root:root /app/config.*.toml \
     && chmod 644 /app/config.*.toml \
