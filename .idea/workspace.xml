@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Arm対応やめる&#10;Azureで動かすから意味ない" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="pipのキャッシュを無効化">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +85,6 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: Goで書き直し + インメモリキャッシュを実装してパフォーマンスを大幅に改善&#10; - WIP: 多言語対応" />
     <MESSAGE value="Fix: 20分とは" />
     <MESSAGE value="Update Dockerfile and dependabot.yml" />
     <MESSAGE value="Clean up" />
@@ -108,7 +109,8 @@
     <MESSAGE value="Fix Dockerfile" />
     <MESSAGE value="Update .idea" />
     <MESSAGE value="Arm対応やめる&#10;Azureで動かすから意味ない" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arm対応やめる&#10;Azureで動かすから意味ない" />
+    <MESSAGE value="pipのキャッシュを無効化" />
+    <option name="LAST_COMMIT_MESSAGE" value="pipのキャッシュを無効化" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
