@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Update .idea" />
+    <list default="true" id="6ec46fd1-0613-4272-966d-40526dc2d3a5" name="Changes" comment="Arm対応やめる&#10;Azureで動かすから意味ない" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +107,8 @@
     <MESSAGE value="Docker: no-cache" />
     <MESSAGE value="Fix Dockerfile" />
     <MESSAGE value="Update .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update .idea" />
+    <MESSAGE value="Arm対応やめる&#10;Azureで動かすから意味ない" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arm対応やめる&#10;Azureで動かすから意味ない" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

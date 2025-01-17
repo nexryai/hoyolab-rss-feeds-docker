@@ -18,7 +18,7 @@ COPY --from=builder /app/hoyofeed /app/
 
 RUN apk update && apk --no-cache upgrade \
     && apk --no-cache add python python-pip \
-    && pip install --break-system-packages -r requirements.txt \
+    && pip install --no-cache-dir --break-system-packages -r requirements.txt \
     && chmod +x /app/hoyofeed \
     && chown -R 816:816 /app
 
