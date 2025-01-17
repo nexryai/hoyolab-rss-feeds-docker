@@ -14,8 +14,8 @@ FROM chimeralinux/chimera
 WORKDIR /app
 
 COPY requirements.txt /app/
-RUN apk update && apk upgrade \
-    && apk add python python-pip \
+RUN apk update && apk --no-cache upgrade \
+    && apk --no-cache add python python-pip \
     && pip install --break-system-packages -r requirements.txt \
     && addgroup -g 816 app \
     && adduser -u 816 -G app -D -h /app app \
