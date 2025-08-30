@@ -2,9 +2,16 @@ language = "ja-jp"
 category_size = 15
 
 [genshin]
+title = "Genshin Impact News"
 feed.json.path = "./genshin.json"
 feed.atom.path = "./genshin.xml"
 
 [starrail]
+title = "Honkai: Star Rail News"
 feed.json.path = "./starrail.json"
 feed.atom.path = "./starrail.xml"
+
+[zenless]
+title = "Zenless Zone Zero News"
+feed.json.path = "./zzz.json"
+feed.atom.path = "./zzz.xml"

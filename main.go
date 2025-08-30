@@ -38,6 +38,8 @@ func generateFeed(lang string) error {
 		upload.PutFileToAzureBlob("./genshin.json", fmt.Sprintf("%s/genshin.json", lang)),
 		upload.PutFileToAzureBlob("./starrail.xml", fmt.Sprintf("%s/starrail.xml", lang)),
 		upload.PutFileToAzureBlob("./starrail.json", fmt.Sprintf("%s/starrail.json", lang)),
+		upload.PutFileToAzureBlob("./zzz.xml", fmt.Sprintf("%s/zzz.xml", lang)),
+		upload.PutFileToAzureBlob("./zzz.json", fmt.Sprintf("%s/zzz.json", lang)),
 	)
 }
 
