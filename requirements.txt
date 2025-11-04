@@ -1,1 +1,1 @@
-hoyolab-rss-feeds==2.4.2
+hoyolab-rss-feeds==2.5.1
